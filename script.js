@@ -54,7 +54,7 @@ function buildWish(name) {
     <p>${randomQuote}</p>
     <p>Wishing you a very <strong>Happy Teachers' Day!</strong> 🎉</p>
     <p>With respect and gratitude,</p>
-    <p><strong>Coding Club — BCA Dept</strong><br/>PSVASC</p>`;
+    <p><strong>Coding Club — Department of Computer Applications</strong><br/>PSVASC</p>`;
 }
 
 function openPreview() {
