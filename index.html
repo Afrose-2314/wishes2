@@ -28,7 +28,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;  /* always keep row layout */
       gap: 10px;
     }
 
@@ -41,6 +41,7 @@
     .brand-text {
       flex: 1;
       text-align: center;
+      padding: 0 8px;
     }
 
     .brand-text h1 {
@@ -61,34 +62,18 @@
       opacity: 0.85;
     }
 
-    #logoutBtn {
-      margin-top: 8px;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 6px;
-      background: #fff;
-      color: #333;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
     /* -------- Responsive -------- */
     @media (max-width: 768px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
-      }
-
       .logo {
-        height: 55px;
+        height: 50px; /* smaller on mobile */
       }
 
       .brand-text h1 {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
       }
 
       .brand-text p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -115,8 +100,6 @@
       <!-- Right Logo -->
       <img src="logo.jpg" alt="Coding Club Logo" class="logo" />
     </div>
-
-    <button id="logoutBtn">Logout</button>
   </header>
 
   <!-- Main App -->
