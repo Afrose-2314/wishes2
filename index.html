@@ -42,13 +42,13 @@
 
     .brand-text h1 {
       margin: 0;
-      font-size: 16px;   /* same font size across devices */
+      font-size: 16px;
       font-weight: 700;
     }
 
     .brand-text p {
       margin: 5px 0 0;
-      font-size: 12px;   /* same font size across devices */
+      font-size: 12px;
       line-height: 1.4;
     }
 
@@ -95,7 +95,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER (UPDATED with two logos + details like first image) -->
   <header class="topbar">
     <div class="brand">
       <!-- Left Logo -->
@@ -114,21 +114,46 @@
 
       <!-- Right Logo -->
       <img src="logo.jpg" alt="Coding Club Logo" />
-    </div>
+    <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
+  <!-- Main App -->
+  <main class="card">
     <h2>🌸 Teachers' Day Wishes 🌸</h2>
-    <p>Enter your name and create a beautiful memory.</p>
-    <input type="text" placeholder="Enter your name" />
-    <br>
-    <button>Submit</button>
+    <p class="sub">Enter your name and create a beautiful memory.</p>
+
+    <input id="teacherName" class="input" type="text" placeholder="Type teacher's name…" maxlength="40" />
+
+    <div class="actions">
+      <button id="createBtn" class="btn primary">✨ Create Wish</button>
+      <button id="resetBtn" class="btn danger">🔁 Reset</button>
+    </div>
+
+    <!-- Wish Preview Modal -->
+    <div id="preview" class="preview hidden" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+      <div class="preview-header">
+        <h3 id="wishTitle">🎁 Your Wish</h3>
+        <div class="burst">🎉</div>
+      </div>
+
+      <div id="wishBody" class="wish-body"></div>
+
+      <div class="preview-actions">
+        <button id="closeBtn" class="btn ghost">Close ✖</button>
+      </div>
+    </div>
+
+    <p class="tip">📸 Tip: Take a screenshot of your wish and share it with your teachers!</p>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    Made with ❤️ by Coding Club — Department of Computer Applications
+  <!-- Footer -->
+  <footer class="footer">
+    Made with ❤️ by <strong>Coding Club — Department of Computer Applications</strong>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+  
+
+ 
