@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,82 +8,99 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
     body {
       font-family: "Poppins", sans-serif;
+      margin: 0;
     }
 
-    /* Topbar */
+    /* -------- Header -------- */
+    .topbar {
+      background: rgba(0,0,0,0.3);
+      padding: 12px;
+    }
+
     .brand {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      flex-shrink: 0;
     }
 
     .brand-text {
-      flex-grow: 1;
+      flex: 1;
       text-align: center;
     }
 
     .brand-text h1 {
-      font-size: 1rem; /* reduced */
       margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
     }
 
     .brand-text p {
-      font-size: 0.75rem; /* reduced */
-      margin: 2px 0;
+      margin: 4px 0;
+      font-size: 0.75rem;
+      line-height: 1.3;
       opacity: 0.9;
     }
 
     .brand-extra {
-      font-size: 0.65rem; /* reduced */
-      line-height: 1.3;
-      margin-top: 4px;
+      font-size: 0.7rem;
       opacity: 0.85;
     }
 
-    .logo {
-      height: 70px; /* increased size */
-      width: auto;
+    #logoutBtn {
+      margin-top: 8px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      font-weight: 600;
     }
 
-    /* Responsive for mobile */
-    @media (max-width: 600px) {
+    /* -------- Responsive -------- */
+    @media (max-width: 768px) {
       .brand {
         flex-direction: column;
         text-align: center;
       }
-      .brand-text {
-        order: -1;
-        margin: 8px 0;
+
+      .logo {
+        height: 55px;
+      }
+
+      .brand-text h1 {
+        font-size: 0.95rem;
+      }
+
+      .brand-text p {
+        font-size: 0.7rem;
       }
     }
   </style>
 </head>
-<body class="main-body">
-  <!-- Background Layers -->
-  <canvas id="glitter"></canvas>
-  <div class="grad-layer"></div>
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-  <canvas id="confetti"></canvas>
-
+<body>
   <!-- Header -->
   <header class="topbar">
     <div class="brand">
-      <!-- Left: College Logo -->
-      <img src="prince.jpg" alt="College Logo" class="logo college-logo" />
+      <!-- Left Logo -->
+      <img src="prince.jpg" alt="College Logo" class="logo" />
 
-      <!-- Middle: Text -->
+      <!-- Center Text -->
       <div class="brand-text">
         <h1>Prince Shri Venkateshwara Arts & Science College</h1>
         <p class="brand-extra">
@@ -94,14 +109,14 @@
           NIRF Band: 101-150 / ISO 9001:2015 Certified Institution / 
           Recognized by UGC under section 2(f) UGC Act 1956
         </p>
-        <p><strong><b>Coding Club — Department of Computer Applications</strong></b></p>
+        <h1>Coding Club — Department of Computer Applications</h1>
       </div>
 
-      <!-- Right: Coding Club Logo -->
-      <img src="logo.jpg" alt="Coding Club Logo" class="logo coding-logo" />
+      <!-- Right Logo -->
+      <img src="logo.jpg" alt="Coding Club Logo" class="logo" />
     </div>
 
-    <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
+    <button id="logoutBtn">Logout</button>
   </header>
 
   <!-- Main App -->
@@ -116,15 +131,13 @@
       <button id="resetBtn" class="btn danger">🔁 Reset</button>
     </div>
 
-    <!-- Wish Preview Modal -->
-    <div id="preview" class="preview hidden" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+    <!-- Wish Preview -->
+    <div id="preview" class="preview hidden">
       <div class="preview-header">
         <h3 id="wishTitle">🎁 Your Wish</h3>
         <div class="burst">🎉</div>
       </div>
-
       <div id="wishBody" class="wish-body"></div>
-
       <div class="preview-actions">
         <button id="closeBtn" class="btn ghost">Close ✖</button>
       </div>
