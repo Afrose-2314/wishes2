@@ -10,6 +10,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand-text {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    .college-logo {
+      margin-right: 15px;
+    }
+
+    .coding-logo {
+      margin-left: 15px;
+    }
+  </style>
 </head>
 <body class="main-body">
   <!-- Animated Background Layers -->
@@ -23,11 +49,16 @@
   <!-- App -->
   <header class="topbar">
     <div class="brand">
-      <img src="logo.jpg" alt="College Logo" />
+      <!-- Left side College Logo -->
+      <img src="prince.jpg" alt="College Logo" class="logo college-logo" />
+
       <div class="brand-text">
         <h1>Prince Shri Venkateswara Arts & Science College</h1>
-        <p>Coding Club — BCA Dept</p>
+        <p>Coding Club — Department of Computer Applications</p>
       </div>
+
+      <!-- Right side Coding Club Logo -->
+      <img src="logo.jpg" alt="Coding Club Logo" class="logo coding-logo" />
     </div>
     <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
   </header>
@@ -61,7 +92,7 @@
   </main>
 
   <footer class="footer">
-    Made with ❤️ by <strong>Coding Club — BCA Dept</strong>
+    Made with ❤️ by <strong>Coding Club — Department of Computer Applications</strong>
   </footer>
 
   <script src="script.js"></script>
