@@ -20,13 +20,17 @@
     .topbar {
       background: rgba(0,0,0,0.3);
       padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
+      flex: 1;
       justify-content: space-between;
-      text-align: center;
       flex-wrap: wrap;
     }
 
@@ -38,6 +42,7 @@
     .brand-text {
       flex: 1;
       padding: 0 15px;
+      text-align: center;
     }
 
     .brand-text h1 {
@@ -52,20 +57,21 @@
       line-height: 1.4;
     }
 
-    /* ---------- CONTENT ---------- */
+    .btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn.ghost { background: transparent; color: #fff; border: 1px solid #fff; }
+    .btn.primary { background: #ffcc00; color: #000; }
+    .btn.danger { background: #ff4444; color: #fff; }
+
+    /* ---------- MAIN ---------- */
     main {
       text-align: center;
       padding: 40px 20px;
-    }
-
-    main h2 {
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-
-    main p {
-      margin-bottom: 20px;
-      font-size: 14px;
     }
 
     input {
@@ -77,14 +83,26 @@
       margin-bottom: 15px;
     }
 
-    button {
-      padding: 10px 20px;
-      background: #ffcc00;
-      border: none;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
+    .actions { margin: 15px 0; }
+
+    /* ---------- PREVIEW MODAL ---------- */
+    .preview {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 20px auto;
+      text-align: center;
+      display: none;
+      position: relative;
     }
+    .preview.show { display: block; }
+    .wish-body {
+      margin: 15px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .preview-actions { margin-top: 10px; }
 
     footer {
       text-align: center;
@@ -92,16 +110,22 @@
       font-size: 12px;
       opacity: 0.85;
     }
+
+    /* Confetti canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER (UPDATED with two logos + details like first image) -->
+  <!-- HEADER -->
   <header class="topbar">
     <div class="brand">
-      <!-- Left Logo -->
       <img src="prince.jpg" alt="College Logo" />
-
-      <!-- Center Text -->
       <div class="brand-text">
         <h1>PRINCE SHRI VENKATESHWARA ARTS AND SCIENCE COLLEGE</h1>
         <p>
@@ -111,33 +135,26 @@
         </p>
         <p><strong>Coding Club — Department of Computer Applications</strong></p>
       </div>
-
-      <!-- Right Logo -->
       <img src="logo.jpg" alt="Coding Club Logo" />
+    </div>
     <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
   </header>
 
-  <!-- Main App -->
-  <main class="card">
+  <!-- MAIN -->
+  <main>
     <h2>🌸 Teachers' Day Wishes 🌸</h2>
-    <p class="sub">Enter your name and create a beautiful memory.</p>
+    <p>Enter your name and create a beautiful memory.</p>
 
-    <input id="teacherName" class="input" type="text" placeholder="Type teacher's name…" maxlength="40" />
+    <input id="teacherName" type="text" placeholder="Type teacher's name…" maxlength="40" />
 
     <div class="actions">
       <button id="createBtn" class="btn primary">✨ Create Wish</button>
       <button id="resetBtn" class="btn danger">🔁 Reset</button>
     </div>
 
-    <!-- Wish Preview Modal -->
-    <div id="preview" class="preview hidden" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
-      <div class="preview-header">
-        <h3 id="wishTitle">🎁 Your Wish</h3>
-        <div class="burst">🎉</div>
-      </div>
-
+    <div id="preview" class="preview" role="dialog" aria-modal="true">
+      <h3>🎁 Your Wish</h3>
       <div id="wishBody" class="wish-body"></div>
-
       <div class="preview-actions">
         <button id="closeBtn" class="btn ghost">Close ✖</button>
       </div>
@@ -146,14 +163,15 @@
     <p class="tip">📸 Tip: Take a screenshot of your wish and share it with your teachers!</p>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <footer>
     Made with ❤️ by <strong>Coding Club — Department of Computer Applications</strong>
   </footer>
 
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- External Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-  
-
- 
