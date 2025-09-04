@@ -5,17 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teachers' Day Wishes — Coding Club</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
+
   <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Topbar */
     .brand {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      gap: 10px;
     }
 
     .brand-text {
@@ -23,22 +32,36 @@
       text-align: center;
     }
 
+    .brand-text h1 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .brand-text p {
+      font-size: 0.9rem;
+      margin: 0;
+      opacity: 0.8;
+    }
+
     .logo {
       height: 60px;
       width: auto;
     }
 
-    .college-logo {
-      margin-right: 15px;
-    }
-
-    .coding-logo {
-      margin-left: 15px;
+    /* Responsive for mobile */
+    @media (max-width: 600px) {
+      .brand {
+        flex-direction: column;
+      }
+      .brand-text {
+        order: -1;
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body class="main-body">
-  <!-- Animated Background Layers -->
+  <!-- Background Layers -->
   <canvas id="glitter"></canvas>
   <div class="grad-layer"></div>
   <div class="blob b1"></div>
@@ -46,23 +69,26 @@
   <div class="blob b3"></div>
   <canvas id="confetti"></canvas>
 
-  <!-- App -->
+  <!-- Header -->
   <header class="topbar">
     <div class="brand">
-      <!-- Left side College Logo -->
+      <!-- Left: College Logo -->
       <img src="prince.jpg" alt="College Logo" class="logo college-logo" />
 
+      <!-- Middle: Text -->
       <div class="brand-text">
         <h1>Prince Shri Venkateswara Arts & Science College</h1>
         <p>Coding Club — Department of Computer Applications</p>
       </div>
 
-      <!-- Right side Coding Club Logo -->
+      <!-- Right: Coding Club Logo -->
       <img src="logo.jpg" alt="Coding Club Logo" class="logo coding-logo" />
     </div>
+
     <button class="btn ghost" id="logoutBtn" type="button">Logout</button>
   </header>
 
+  <!-- Main App -->
   <main class="card">
     <h2>🌸 Teachers' Day Wishes 🌸</h2>
     <p class="sub">Enter your name and create a beautiful memory.</p>
@@ -91,6 +117,7 @@
     <p class="tip">📸 Tip: Take a screenshot of your wish and share it with your teachers!</p>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     Made with ❤️ by <strong>Coding Club — Department of Computer Applications</strong>
   </footer>
